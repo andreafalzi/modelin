@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+
+$height: $navbar-h;
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $white;
+}
+
+nav {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: $height;
+
+  img.logo {
+    max-width: 200px;
+  }
+
+  .menu-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+}
+
+.menu-slide {
+  translate: -100%;
+  transition: all 300ms 300ms ease-in;
+  font-family: $lexend;
+  background-color: $white;
+  height: calc(100vh - $height);
+  z-index: 20;
+  position: absolute;
+  top: $height;
+  width: 100%;
+
+  ul {
+    list-style: none;
+    width: fit-content;
+    margin-inline: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+
+    li.menu-link + li.menu-link {
+      margin-top: 2rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $black;
+    font-size: 2rem;
+
+    &:is(:hover, :focus) {
+      color: $hover-color;
+    }
+  }
+}
+
+.menu-slide.show {
+  translate: 0%;
+}

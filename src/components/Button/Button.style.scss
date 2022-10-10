@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.btn {
+  padding-block: 0.5rem;
+  padding-inline: 2rem;
+  background-color: $black;
+  color: $white;
+  width: fit-content;
+  border: none;
+  font-size: 1rem;
+  font-family: $mukta;
+  cursor: pointer;
+}

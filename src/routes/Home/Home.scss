@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+$height: $navbar-h;
+
+.home-hero {
+  background-image: url('../../../public/assets/landing/home.jpg');
+  background-size: cover;
+  background-position: center $height;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.home-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.hero-box {
+  background-color: $white;
+  padding: 2rem;
+  border: 1px solid $black;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    font-weight: $bold;
+  }
+}

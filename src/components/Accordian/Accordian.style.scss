@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+.accordian {
+  overflow: hidden;
+}
+
+.accordian-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-block: 1rem;
+  border-top: 1px solid $black;
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+    transition: all 100ms 300ms ease-in;
+  }
+
+  .icon.rotate {
+    rotate: 135deg;
+  }
+}
+
+.accordian-box {
+  max-height: 0;
+  transition: all 300ms 500ms linear;
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.accordian-box.show {
+  max-height: 100vh;
+  transition: all 300ms 500ms linear;
+}
