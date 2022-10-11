@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+
+$height: $navbar-h;
+
+.contact-container {
+  padding-top: $height;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+form {
+  position: relative;
+
+  span.response {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    isolation: isolate;
+    translate: -100vw;
+    transition: translate 300ms ease-in;
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: $black;
+      inset: 0;
+      z-index: -1;
+    }
+
+    svg {
+      color: $white;
+      font-size: 6rem;
+    }
+
+    p {
+      color: $white;
+    }
+  }
+
+  span.response.show {
+    translate: 0;
+  }
+}

@@ -4,6 +4,12 @@ import './Footer.style.scss';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <footer>
       <div className='row'>
@@ -13,10 +19,18 @@ const Footer = () => {
             <p>Interior Designer</p>
           </div>
           <div className='footer-col'>
-            <Link to={'/'}>Home</Link>
-            <Link to={'portfolio'}>Portfolio</Link>
-            <Link to={'about'}>About Me</Link>
-            <Link to={'contact'}>Contact</Link>
+            <Link to={'/'} onClick={goToTop}>
+              Home
+            </Link>
+            <Link to={'portfolio'} onClick={goToTop}>
+              Portfolio
+            </Link>
+            <Link to={'about'} onClick={goToTop}>
+              About Me
+            </Link>
+            <Link to={'contact'} onClick={goToTop}>
+              Contact
+            </Link>
           </div>
           <div className='footer-col'>
             <Link>

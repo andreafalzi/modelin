@@ -1,44 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../../components/Button/Button.components';
 import './Portfolio.scss';
 
-const Portfolio = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const url = 'https://modelin.webmcdm.dk/portfolios';
-    // const options = {
-    //   headers: {
-    //     Accept: 'application/json',
-    //   },
-    // };
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        console.log('error', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(data);
-
+const Portfolio = ({ data }) => {
   return (
     <main>
-      <section className='row'>
+      <section className='row section'>
         <div className='container portfolio-container'>
-          <h1>Portfolio</h1>
+          <h2>Portfolio</h2>
           <p>Experience of over 10 years of successful projects on creating unique and modern interior designs all over the world</p>
           <div className='portfolio-grid'>
             {data.map((item) => (
               <div className='portfolio-box' key={item.id}>
                 <img src={item.teaser} alt={item.title} />
-                <h3>{item.title}</h3>
-                <p>{item.headline}</p>
+                <div className='box-content'>
+                  <h3>{item.title}</h3>
+                  <p>
+                    <em>{item.headline}</em>
+                  </p>
+                </div>
+                <div className='portfolio-btn'>
+                  <Link to={`${item.id}`}>
+                    <Button>Explore</Button>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

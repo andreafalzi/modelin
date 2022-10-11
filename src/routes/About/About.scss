@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+$height: $navbar-h;
+
+.about-hero {
+  background-image: url('../../../public/assets/landing/about.jpg');
+  background-size: cover;
+  background-position: center $height;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  .hero-box {
+    color: $white;
+  }
+}

@@ -2,14 +2,14 @@
 
 $height: $navbar-h;
 
-.home-hero {
+.error-hero {
   background-image: url('../../../public/assets/landing/home.jpg');
   background-size: cover;
   background-position: center $height;
   background-repeat: no-repeat;
   height: 100vh;
 }
-.home-container {
+.error-container {
   height: 100%;
   display: flex;
   align-items: center;

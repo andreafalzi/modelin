@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+$height: $navbar-h;
+
+.portfolio-id-hero {
+  background-size: cover;
+  background-position: center $height;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  isolation: isolate;
+
+  .portfolio-id-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .hero-box {
+      color: $black;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    z-index: -1;
+  }
+}
