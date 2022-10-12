@@ -9,10 +9,11 @@
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 8px;
+  height: 2px;
 }
 
 *::-webkit-scrollbar-track {
-  background: #494949;
+  background: #eaeaea;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -41,7 +42,6 @@ body {
 
 a {
   width: fit-content;
-  display: contents;
 }
 
 .section {

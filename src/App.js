@@ -12,7 +12,7 @@ import PortfolioID from './routes/PortfolioID/PortfolioID';
 
 function App() {
   const [data, setData] = useState([]);
-
+  const url = 'https://modelin.webmcdm.dk/';
   useEffect(() => {
     const url = 'https://modelin.webmcdm.dk/portfolios';
     // const options = {
@@ -34,15 +34,13 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <Navigation />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='portfolio' data={data} element={<Portfolio />} />
-        <Route path='portfolio/:id' data={data} element={<PortfolioID />} />
+        <Route path='portfolio' element={<Portfolio data={data} url={url} />} />
+        <Route path='portfolio/:id' element={<PortfolioID data={data} url={url} />} />
         <Route path='about' element={<About />} />
         <Route path='contact' element={<Contact />} />
         <Route path='*' element={<Error404 />} />

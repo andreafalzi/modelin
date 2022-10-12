@@ -15,34 +15,29 @@ $height: $navbar-h;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3rem;
+  gap: 2rem;
 }
 
 .portfolio-box {
-  position: relative;
   width: 100%;
   max-width: 350px;
 
-  img {
-    width: 100%;
-    filter: blur(3px);
-    transition: filter 500ms ease-in, scale 500ms ease-in;
-    border-radius: 5px;
-    scale: 0.85;
+  @media screen and (min-width: 900px) {
+    max-width: 500px;
+  }
+
+  .box-image {
+    position: relative;
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
   }
 
   .box-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    width: fit-content;
-    color: $white;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 300ms ease-in, visibility 300ms ease-in;
-    border-radius: 5px;
+    width: 100%;
+    color: $black;
 
     h3 {
       text-transform: uppercase;
@@ -67,14 +62,14 @@ $height: $navbar-h;
   visibility: hidden;
   transition: scale 500ms ease-in, visibility 500ms ease-in;
 }
-.portfolio-box:hover img {
-  filter: blur(0px);
-  scale: 1;
-}
-.portfolio-box:hover .box-content {
-  opacity: 0;
-  visibility: hidden;
-}
+// .portfolio-box:hover img {
+//   filter: blur(0px);
+//   scale: 1;
+// }
+// .portfolio-box:hover .box-content {
+//   opacity: 0;
+//   visibility: hidden;
+// }
 
 .portfolio-box:hover .portfolio-btn {
   scale: 1;

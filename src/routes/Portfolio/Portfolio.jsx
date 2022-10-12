@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button.components';
 import './Portfolio.scss';
 
-const Portfolio = ({ data }) => {
+const Portfolio = ({ data, url }) => {
   return (
     <main>
       <section className='row section'>
@@ -13,17 +13,19 @@ const Portfolio = ({ data }) => {
           <div className='portfolio-grid'>
             {data.map((item) => (
               <div className='portfolio-box' key={item.id}>
-                <img src={item.teaser} alt={item.title} />
                 <div className='box-content'>
                   <h3>{item.title}</h3>
                   <p>
                     <em>{item.headline}</em>
                   </p>
                 </div>
-                <div className='portfolio-btn'>
-                  <Link to={`${item.id}`}>
-                    <Button>Explore</Button>
-                  </Link>
+                <div className='box-image'>
+                  <img src={`${url}${item.teaser}`} alt={item.title} />
+                  <div className='portfolio-btn'>
+                    <Link to={`${item.id}`}>
+                      <Button>Explore</Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

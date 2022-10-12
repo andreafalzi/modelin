@@ -2,8 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Error404 from '../Error404/Error404';
 import './PortfolioID.scss';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
-const PortfolioID = ({ data }) => {
+const PortfolioID = ({ data, url }) => {
   let params = useParams();
 
   const singlePortfolio = data.find((el) => el.id === parseInt(params.id));
@@ -13,7 +14,7 @@ const PortfolioID = ({ data }) => {
   const { year, area, address } = placement;
 
   const heroStyle = {
-    backgroundImage: `url(${cover})`,
+    backgroundImage: `url(${url}${cover})`,
     // backgroundSize: 'cover',
     // backgroundPosition: 'center',
     // backgroundRepeat: 'no-repeat',
@@ -24,32 +25,43 @@ const PortfolioID = ({ data }) => {
     <main>
       <section className='row portfolio-id-hero' style={heroStyle}>
         <div className='container portfolio-id-container'>
-          <div className='hero-box'>
-            <h1>{title}</h1>
-          </div>
+          <h1 className='hero-title'>{title}</h1>
+          <MdKeyboardArrowDown />
         </div>
       </section>
       <section className='row section'>
         <div className='container section-container'>
           <h2>{headline}</h2>
           <p>{description}</p>
-          <p>
-            <strong>Year</strong>
-          </p>
-          <p>{year}</p>
-          <p>
-            <strong>Area</strong>
-          </p>
-          <p>{area}</p>
-          <p>
-            <strong>Address</strong>
-          </p>
-          <p>{address}</p>
-        </div>
-        <div className='gallery-grid'>
-          {gallery.map((img, index) => (
-            <img key={index} src={img.image} alt={`location${index}`} />
-          ))}
+          <div className='paragraph'>
+            <p>
+              <strong>Year</strong>
+            </p>
+            <p>{year}</p>
+          </div>
+          <div className='paragraph'>
+            <p>
+              <strong>Area</strong>
+            </p>
+            <p>{area}</p>
+          </div>
+          <div className='paragraph'>
+            <p>
+              <strong>Address</strong>
+            </p>
+            <p>{address}</p>
+          </div>
+          <h2>Gallery</h2>
+          <div className='portfolio-gallery-grid'>
+            {gallery.map((img, index) => (
+              <div className='portfolio-gallery-card'>
+                <span className='counter'>
+                  {index + 1} / {gallery.length}
+                </span>
+                <img key={index} src={`${url}${img.image}`} alt={`location${index}`} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </main>

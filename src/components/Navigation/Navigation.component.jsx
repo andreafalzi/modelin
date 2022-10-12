@@ -11,7 +11,9 @@ const Navigation = () => {
       <div className='row'>
         <div className='container'>
           <nav>
-            <img src='./assets/logo/logo-modelin.svg' alt='logo' className='logo' />
+            <Link to={'/'}>
+              <img src='/assets/logo/logo-modelin.svg' alt='logo' className='logo' />
+            </Link>
             {isOpen ? <MdClose className='menu-icon' onClick={() => setIsOpen((prev) => !prev)} /> : <MdMenu className='menu-icon' onClick={() => setIsOpen((prev) => !prev)} />}
           </nav>
         </div>
@@ -40,6 +42,7 @@ const Navigation = () => {
             <li className='menu-link'>
               <a href='https://instagram.com' target={'_blank'} rel='noreferrer'>
                 <FaInstagram />
+                Instagram
               </a>
             </li>
           </ul>
