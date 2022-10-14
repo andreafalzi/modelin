@@ -11,7 +11,7 @@ const Navigation = () => {
       <div className='row'>
         <div className='container'>
           <nav>
-            <Link to={'/'}>
+            <Link to={'/'} onClick={() => setIsOpen(false)}>
               <img src='/assets/logo/logo-modelin.svg' alt='logo' className='logo' />
             </Link>
             {isOpen ? <MdClose className='menu-icon' onClick={() => setIsOpen((prev) => !prev)} /> : <MdMenu className='menu-icon' onClick={() => setIsOpen((prev) => !prev)} />}

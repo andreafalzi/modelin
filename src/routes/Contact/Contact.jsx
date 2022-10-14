@@ -57,8 +57,8 @@ const Contact = () => {
               <FaHeart />
               <p>Thank you, I will respond asap.</p>
             </span>
-            <Input labelName='email' type='email' required name='email' value={email} onChange={handleChange} />
-            <Textarea labelName='message' type='text' required name='message' value={message} onChange={handleChange} />
+            <Input labelName='Email *' type='email' required name='email' value={email} onChange={handleChange} pattern='\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b' title='Enter a valid email' />
+            <Textarea labelName='Message *' type='text' required name='message' value={message} onChange={handleChange} />
             <Button type='submit'>Send Message</Button>
           </form>
         </div>

@@ -9,10 +9,16 @@ footer {
   flex-direction: column;
   gap: 4rem;
 
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+  }
+
   .footer-col {
+    width: 100%;
     color: $white;
     font-size: 1rem;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 1rem;
     margin-inline: auto;
@@ -22,11 +28,8 @@ footer {
     }
 
     &:last-child {
-      svg {
-        font-size: 3rem;
-      }
-
       a {
+        font-size: 1.2rem;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -40,7 +43,7 @@ footer {
     display: block;
 
     &:is(:hover, :focus) {
-      color: $hover-color;
+      text-decoration: underline;
     }
   }
 }

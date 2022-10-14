@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Error404 from '../Error404/Error404';
 import './PortfolioID.scss';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import Lightbox from '../../components/Lightbox/Lightbox.component';
 
 const PortfolioID = ({ data, url }) => {
   let params = useParams();
+  const [currentSlide, setCurrentSlide] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openLightbox = (e) => {
+    document.body.style.overflow = 'hidden';
+    setCurrentSlide(parseInt(e.target.name));
+    setIsOpen((prev) => !prev);
+  };
+
+  const closeLightbox = () => {
+    document.body.style.overflow = 'auto';
+    setIsOpen((prev) => !prev);
+  };
 
   const singlePortfolio = data.find((el) => el.id === parseInt(params.id));
 
@@ -54,16 +68,17 @@ const PortfolioID = ({ data, url }) => {
           <h2>Gallery</h2>
           <div className='portfolio-gallery-grid'>
             {gallery.map((img, index) => (
-              <div className='portfolio-gallery-card'>
+              <div className={`portfolio-gallery-card gallery-image-${index + 1}`} key={index} onClick={openLightbox}>
                 <span className='counter'>
                   {index + 1} / {gallery.length}
                 </span>
-                <img key={index} src={`${url}${img.image}`} alt={`location${index}`} />
+                <img src={`${url}${img.image}`} alt={`location${index}`} name={index} />
               </div>
             ))}
           </div>
         </div>
       </section>
+      {isOpen && <Lightbox close={closeLightbox} gallery={gallery} current={currentSlide} url={url} />}
     </main>
   ) : (
     <Error404 />

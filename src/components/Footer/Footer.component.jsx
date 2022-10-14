@@ -33,12 +33,12 @@ const Footer = () => {
             </Link>
           </div>
           <div className='footer-col'>
-            <Link>
+            <a href='https://instagram.com' target='_blank' rel='noreferrer'>
               <FaInstagram /> Instagram
-            </Link>
-            <Link>
+            </a>
+            <a href='https://facebook.com' target='_blank' rel='noreferrer'>
               <FaFacebook /> Facebook
-            </Link>
+            </a>
           </div>
         </div>
       </div>
