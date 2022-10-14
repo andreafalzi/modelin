@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Error404 from '../Error404/Error404';
 import './PortfolioID.scss';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdSearch } from 'react-icons/md';
 import Lightbox from '../../components/Lightbox/Lightbox.component';
 
 const PortfolioID = ({ data, url }) => {
@@ -23,12 +23,12 @@ const PortfolioID = ({ data, url }) => {
 
   const singlePortfolio = data.find((el) => el.id === parseInt(params.id));
 
-  const { cover, description, gallery, headline, placement, title } = singlePortfolio;
+  const { description, gallery, headline, placement, title, teaser } = singlePortfolio;
 
   const { year, area, address } = placement;
 
   const heroStyle = {
-    backgroundImage: `url(${url}${cover})`,
+    backgroundImage: `url(${url}${teaser})`,
     // backgroundSize: 'cover',
     // backgroundPosition: 'center',
     // backgroundRepeat: 'no-repeat',
@@ -72,7 +72,12 @@ const PortfolioID = ({ data, url }) => {
                 <span className='counter'>
                   {index + 1} / {gallery.length}
                 </span>
-                <img src={`${url}${img.image}`} alt={`location${index}`} name={index} />
+                <div className='portfolio-gallery-card-image-box'>
+                  <img src={`${url}${img.image}`} alt={`location${index}`} name={index} />
+                  <span className='view'>
+                    <MdSearch />
+                  </span>
+                </div>
               </div>
             ))}
           </div>
