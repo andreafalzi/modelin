@@ -23,13 +23,4 @@ $height: $navbar-h;
   flex-direction: column;
   gap: 2rem;
   backdrop-filter: blur(10px);
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  p {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-  }
 }

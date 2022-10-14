@@ -48,16 +48,21 @@ a {
   padding-block: 3rem;
 }
 
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.hero-box p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  letter-spacing: 1px;
+}
+
 .section-container {
   text-align: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-
-  h2 {
-    font-size: 2rem;
-  }
 
   p {
     font-size: 1rem;
