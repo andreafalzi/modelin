@@ -12,7 +12,7 @@ const PortfolioID = ({ data, url }) => {
 
   const openLightbox = (e) => {
     document.body.style.overflow = 'hidden';
-    setCurrentSlide(parseInt(e.target.name));
+    setCurrentSlide(parseInt(e.target.getAttribute('name')));
     setIsOpen((prev) => !prev);
   };
 
@@ -68,12 +68,12 @@ const PortfolioID = ({ data, url }) => {
           <h2>Gallery</h2>
           <div className='portfolio-gallery-grid'>
             {gallery.map((img, index) => (
-              <div className={`portfolio-gallery-card gallery-image-${index + 1}`} key={index} onClick={openLightbox}>
+              <div className={`portfolio-gallery-card gallery-image-${index + 1}`} key={index} onClick={openLightbox} name={index}>
                 <span className='counter'>
                   {index + 1} / {gallery.length}
                 </span>
                 <div className='portfolio-gallery-card-image-box'>
-                  <img src={`${url}${img.image}`} alt={`location${index}`} name={index} />
+                  <img src={`${url}${img.image}`} alt={`location${index}`} />
                   <span className='view'>
                     <MdSearch />
                   </span>

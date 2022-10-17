@@ -26,7 +26,7 @@ const Lightbox = ({ close, gallery, current, url }) => {
         <div className='lightbox-main'>
           <MdKeyboardArrowLeft className='arrow arrow-left' onClick={() => updateIndex(activeIndex - 1)} />
           <div className='lightbox-main-box'>
-            <img src={`${url}${mainSlide.image}`} alt={`location${current}`} />
+            <img src={`${url}${mainSlide?.image}`} alt={`location${current}`} />
           </div>
           <MdKeyboardArrowRight className='arrow arrow-right' onClick={() => updateIndex(activeIndex + 1)} />
         </div>
